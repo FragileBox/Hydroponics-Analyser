@@ -1,4 +1,9 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
+
+data_solution = pd.read_csv('Soil-less tomato data/Nutrient_solution_consumption.csv')
+data_fruit = pd.read_csv('Soil-less tomato data/Fruit_cation.csv')
 
 st.title("Hydroponics Analyser")
 

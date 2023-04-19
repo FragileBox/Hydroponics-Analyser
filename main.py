@@ -9,7 +9,7 @@ Potassium = st.slider("K content(mg): ", step = 1, min_value = 400, max_value = 
 Magnessium = st.slider("Mg content(mg): ", step = 1, min_value = 400, max_value = 2100)
 Calcium = st.slider("Ca content(mg): ", step = 1, min_value = 400, max_value = 2100)
 
-button = st.button("Predict Conditions")
+button = st.button("Predict Conditions", page="result")
 if button:
     st.session_state.runpage = App1page
     st.session_state.runpage()

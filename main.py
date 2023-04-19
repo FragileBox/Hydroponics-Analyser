@@ -2,8 +2,9 @@ import streamlit as st
 
 st.title("Hydroponics Analyser")
 
-mass = st.number("What is your mass(kg): ", step = 100)
-height = st.slider("What is your height(m): ", step = 100)
+new_sol = st.number_input("Nutrient solution to be added(kg): ", step = 0.01)
+add_sol = st.number_input("Nutrient solution already added(kg): ", step = 0.01)
+Sodium = st.slider("Na content(mg): ", step = 1, min_value = 400, max_value = 2100)
 
 button = st.button("Predict Conditions")
 if button:

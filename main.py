@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_extras.switch_page_button import *
 
 st.title("Hydroponics Analyser")
 
@@ -9,7 +10,6 @@ Potassium = st.slider("K content(mg): ", step = 1, min_value = 400, max_value = 
 Magnessium = st.slider("Mg content(mg): ", step = 1, min_value = 400, max_value = 2100)
 Calcium = st.slider("Ca content(mg): ", step = 1, min_value = 400, max_value = 2100)
 
-button = st.button("Predict Conditions", page="result")
+button = st.button("Predict Conditions")
 if button:
-    st.session_state.runpage = App1page
-    st.session_state.runpage()
+    switch_page("Result")

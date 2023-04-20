@@ -1,8 +1,8 @@
 import pandas as pd
 
 # Load CSVs
-data_solution = pd.read_csv('Soil-less tomato data/Nutrient_solution_consumption.csv')
-data_fruit = pd.read_csv('Soil-less tomato data/Fruit_cation.csv')
+data_solution = pd.read_csv('Nutrient_solution_consumption.csv')
+data_fruit = pd.read_csv('Fruit_cation.csv')
 
 # Drops missing values
 for data in [data_solution, data_fruit]:

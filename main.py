@@ -10,7 +10,7 @@ for data in [data_solution, data_fruit]:
   data = data.dropna(axis=0)
 
 # Convert strings to numbers
-types = {"Fruits (from harvest)": 1}
+types = {"No Fruits (from harvest)": 0,"Fruits (from harvest)": 1}
 data_fruit.Organ_harvested = [types[x] for x in data_fruit.Organ_harvested]
 
 # Removing outliers

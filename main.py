@@ -61,7 +61,6 @@ Calcium = st.slider("Ca content(mg): ", step = 1, min_value = 400, max_value = 2
 
 button = st.button("Predict Conditions")
 if button:
-    # Make predictions
     for features in [[new_sol, add_sol], [Sodium, Potassium, Magnesium, Calcium]]:
-      yPredictions = model.predict(features)
-      st.success(f"Predictions for {features}: {yPredictions}")
+      Predictions = model.predict(features)
+      st.success(f"Predictions for {features}: {Predictions}")

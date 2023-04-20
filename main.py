@@ -48,14 +48,7 @@ Xtrain_F, Xtest_F, ytrain_F, ytest_F = model_selection.train_test_split(X_F, y_F
 
 # Perform regression on the data
 model.fit(X_S, y_S)
-model.score(Xtest_S, ytest_S)
 model.fit(X_F, y_F)
-model.score(Xtest_F, ytest_F)
-
-# Make Predictions
-for features in XforPredictions:
-  yPredictions = model.predict(XforPredictions)
-  st.success(f"Predictions for {features}: {yPredictions}")
 
 st.title("Hydroponics Analyser")
 
@@ -68,5 +61,7 @@ Calcium = st.slider("Ca content(mg): ", step = 1, min_value = 400, max_value = 2
 
 button = st.button("Predict Conditions")
 if button:
-    process = subprocess.run([f"{sys.executable}", "analyser.py"])
-    result = process.communicate(Xforpredictions = [[new_sol, add_sol], [Sodium, Potassium, Magnesium, Calcium]])
+    # Make predictions
+    for features in [[new_sol, add_sol], [Sodium, Potassium, Magnesium, Calcium]]:
+      yPredictions = model.predict(features)
+      st.success(f"Predictions for {features}: {yPredictions}")

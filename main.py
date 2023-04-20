@@ -38,15 +38,16 @@ y_F = data_fruit.Organ_harvested
 from sklearn import *
 
 # Pick the regression model we want to use
-model = ensemble.RandomForestRegressor(random_state=2020)
+model_S = ensemble.RandomForestRegressor(random_state=2020)
+model_F = ensemble.RandomForestRegressor(random_state=2020)
 
 # Split training into some for training and some for testing
 Xtrain_S, Xtest_S, ytrain_S, ytest_S = model_selection.train_test_split(X_S, y_S, test_size=0.2, random_state=10)
 Xtrain_F, Xtest_F, ytrain_F, ytest_F = model_selection.train_test_split(X_F, y_F, test_size=0.2, random_state=10)
 
 # Perform regression on the data
-model.fit(X_S, y_S)
-model.fit(X_F, y_F)
+model_S.fit(X_S, y_S)
+model_F.fit(X_F, y_F)
 
 st.title("Hydroponics Analyser")
 
@@ -59,7 +60,6 @@ Calcium = st.slider("Ca content(mg): ", step = 1, min_value = 400, max_value = 2
 
 button = st.button("Predict Conditions")
 if button:
-    inputs = [[[new_sol, add_sol]], [[Sodium, Potassium, Magnesium, Calcium]]]
-    for input in inputs:
-      Predictions = model.predict(input)
-      st.success(f"Predictions for {features}: {Predictions}")
+    Predictions_S = model_S.predict([[new_sol, add_sol]])
+    Predictions_F = model_F.predict([[Sodium, Potassium, Magnesium, Calcium]])
+    st.success(f"Predictions for Solution: {Predictions_S}\nPredictions for Fruit: {Predictions_F}"

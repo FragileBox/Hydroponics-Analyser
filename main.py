@@ -62,4 +62,4 @@ button = st.button("Predict Conditions")
 if button:
     Predictions_S = model_S.predict([[new_sol, add_sol]])
     Predictions_F = model_F.predict([[Sodium, Potassium, Magnesium, Calcium]])
-    st.success(f"Predictions for Solution: {Predictions_S}\nPredictions for Fruit: {Predictions_F}"
+    st.success(f"Predictions for Solution: {Predictions_S}\nPredictions for Fruit: {Predictions_F}")

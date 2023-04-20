@@ -51,6 +51,7 @@ model_F.fit(X_F, y_F)
 
 st.title("Hydroponics Analyser")
 
+ec_limit = st.number_input("EC Limit: ", step = 0.1)
 new_sol = st.number_input("Nutrient solution to be added(kg): ", step = 0.01)
 add_sol = st.number_input("Nutrient solution already added(kg): ", step = 0.01)
 Sodium = st.slider("Na content(mg): ", step = 1, min_value = 400, max_value = 2100)
@@ -60,6 +61,6 @@ Calcium = st.slider("Ca content(mg): ", step = 1, min_value = 400, max_value = 2
 
 button = st.button("Predict Conditions")
 if button:
-    Predictions_S = model_S.predict([[new_sol, add_sol]])
+    Predictions_S = model_S.predict([[ec_limit, new_sol, add_sol]])
     Predictions_F = model_F.predict([[Sodium, Potassium, Magnesium, Calcium]])
     st.success(f"Predictions for Solution: {Predictions_S}\nPredictions for Fruit: {Predictions_F}")

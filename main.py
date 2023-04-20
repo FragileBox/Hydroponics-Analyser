@@ -1,17 +1,4 @@
 import streamlit as st
-import pandas as pd
-
-# Load CSVs
-data_solution = pd.read_csv('Soil-less tomato data/Nutrient_solution_consumption.csv')
-data_fruit = pd.read_csv('Soil-less tomato data/Fruit_cation.csv')
-
-# Drops missing values
-for data in [data_solution, data_fruit]:
-  data = data.dropna(axis=0)
-
-# Convert strings to numbers
-types = {"Fruits (from harvest)": 1}
-data_fruit.Organ_harvested = [types[x] for x in data_fruit.Organ_harvested]
 
 st.title("Hydroponics Analyser")
 

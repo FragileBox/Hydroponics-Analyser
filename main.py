@@ -64,5 +64,4 @@ if button:
     Predictions_S = model_S.predict([[ec_limit, new_sol, add_sol]])
     Predictions_F = model_F.predict([[Sodium, Potassium, Magnesium, Calcium]])
     normalized_S = ((Predictions_S-0.0)/(6.0-0.0))/2
-    st.success(Predictions_S)
     st.success(f"Probability of success: {'%.2f'%((normalized_S+(Predictions_F/2))*100)}%")

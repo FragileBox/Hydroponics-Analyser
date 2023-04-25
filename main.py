@@ -59,9 +59,9 @@ ec_limit = st.number_input("EC Limit: ", step = 0.1)
 new_sol = st.number_input("Nutrient solution to be added(kg): ", step = 0.01)
 add_sol = st.number_input("Nutrient solution already added(kg): ", step = 0.01)
 Sodium = st.slider("Na content(mg): ", step = 1, min_value = 400, max_value = 2100)
-Potassium = st.slider("K content(mg): ", step = 1, min_value = 400, max_value = 2100)
-Magnesium = st.slider("Mg content(mg): ", step = 1, min_value = 400, max_value = 2100)
-Calcium = st.slider("Ca content(mg): ", step = 1, min_value = 400, max_value = 2100)
+Potassium = st.slider("K content(mg): ", step = 1, min_value = 24000, max_value = 32000)
+Magnesium = st.slider("Mg content(mg): ", step = 1, min_value = 600, max_value = 3000)
+Calcium = st.slider("Ca content(mg): ", step = 1, min_value = 300, max_value = 3500)
 
 button = st.button("Predict Conditions")
 if button:

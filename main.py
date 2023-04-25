@@ -127,9 +127,9 @@ elif option == "Eggplant":
       features_env = ["pH", "Temperature(Farenheit)", "Humidity"]
 
       X_N = data_nut[features_nut]
-      y_N = data_nut.Fruit
+      y_N = data_nut.Total_Var
       X_E = data_env[features_env]
-      y_E = data_env.Total_Var
+      y_E = data_env.Fruit
 
       # Pick the regression model we want to use
       model_E_N = ensemble.RandomForestRegressor(random_state=2020)

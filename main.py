@@ -102,9 +102,9 @@ elif option == "Eggplant":
         data.Fruit = [types[x] for x in data.Fruit]
       
       # Setting Variance as Y axis
-      data_nut["Norm_Nitrogen"] = np.where(data_nut["Nitrogen"] <= 10, (data_nut["Nitrogen"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
-      data_nut["Norm_Phosporus"] = np.where(data_nut["Phosporus"] <= 10, (data_nut["Phosporus"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
-      data_nut["Norm_Potassium"] = np.where(data_nut["Postassium"] <= 10, (data_nut["Postassium"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
+      data_nut["Norm_Nitrogen"] = np.where(data_nut["Nitrogen(%)"] <= 10, (data_nut["Nitrogen(%)"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
+      data_nut["Norm_Phosporus"] = np.where(data_nut["Phosporus(%)"] <= 10, (data_nut["Phosporus(%)"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
+      data_nut["Norm_Potassium"] = np.where(data_nut["Postassium(%)"] <= 10, (data_nut["Postassium(%)"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
       data_nut["Total_Var"] = (data_nut["Norm_Nitrogen"]+data_nut["Norm_Phosporus"]+data_nut["Norm_Potassium"])/3
       data_nut.drop(["Norm_Nitrogen", "Norm_Phosporus", "Norm_Potassium"], axis='columns', inplace=True)
       data_nut = data_nut[data_nut["Fruit"] != 1]

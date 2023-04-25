@@ -125,10 +125,10 @@ elif option == "Eggplant":
   ec_limit = st.number_input("EC Limit: ", step = 0.1)
   pH = st.number_input("pH: ", step = 0.1)
   Temp = st.slider("Temperature(Farenheit): ", step = 1, max_value = 100)
-  Humidity = st.slider("Humidity(%): ", step = 0.1, max_value = 100.0)
-  Nitrogen = st.slider("N content(%): ", step = 0.1, max_value = 100.0)
-  Phosporous = st.slider("P content(%): ", step = 0.1, max_value = 100.0)
-  Potassium = st.slider("K content(%): ", step = 0.1, max_value = 100.0)
+  Humidity = st.slider("Humidity(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
+  Nitrogen = st.slider("N content(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
+  Phosporous = st.slider("P content(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
+  Potassium = st.slider("K content(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
 
   button = st.button("Predict Conditions")
   if button:

@@ -123,7 +123,7 @@ if option == "Tomato":
       st.success(f"Probability of success: {'%.2f'%((normalized_S+(Predictions_F/2))*100)}%")
 elif option == "Eggplant":
   ec_limit = st.number_input("EC Limit: ", step = 0.1)
-  pH = st.number_input("pH: ", step = 0.1, min_value = 1, max_value = 14)
+  pH = st.number_input("pH: ", step = 0.1)
   Temp = st.number_input("Temperature(Farenheit): ", step = 0.1, min_value = 0, max_value = 100)
   Humidity = st.slider("Humidity(%): ", step = 0.1, min_value = 0, max_value = 100)
   Nitrogen = st.slider("N content(%): ", step = 0.1, min_value = 0, max_value = 100)

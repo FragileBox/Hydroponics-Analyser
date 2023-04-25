@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 from sklearn import *
 
 # Main Application
@@ -67,7 +68,7 @@ if option == "Tomato":
       # Make Predictions
       Predictions_S = model_T_S.predict([[ec_limit, new_sol, add_sol]])
       Predictions_F = model_T_F.predict([[Sodium, Potassium, Magnesium, Calcium]])
-      normalized_S = ((Predictions_S-0.0)/(6.0-0.0))/2
+      normalized_S = ((Predictions_S-0.0)/(7.2-0.0))/2
       st.success(f"Probability of success: {'%.2f'%((normalized_S+(Predictions_F/2))*100)}%")
 
 elif option == "Eggplant":
@@ -100,9 +101,13 @@ elif option == "Eggplant":
       for data in [data_nut, data_env]:
         data.Fruit = [types[x] for x in data.Fruit]
       
-      #Normalise numbers to an expected point
-      for column in data_nut.columns:
-        data[column] = (data[column]-8.5)/11.5-8.5
+      # Setting Variance as Y axis
+      data_nut["Norm_Nitrogen"] = np.where(data_nut["Nitrogen"] <= 10, (data_nut["Nitrogen"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
+      data_nut["Norm_Phosporus"] = np.where(data_nut["Phosporus"] <= 10, data_nut["Phosporus"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
+      data_nut["Norm_Potassium"] = np.where(data_nut["Postassium"] <= 10, data_nut["Postassium"]-8.5)/(10-8.5), (11.5-data_nut["Nitrogen"])/(11.5-10))
+      data_nut["Total_Var"] = (data_nut["Norm_Nitrogen"]+data_nut["Norm_Phosporus"]+data_nut["Norm_Potassium"])/3
+      data_nut.drop(["Norm_Nitrogen", "Norm_Phosporus", "Norm_Potassium"], axis='columns', inplace=True)
+      data_nut = data_nut[data_nut["Fruit"] != 1]
 
       # Removing outliers
       # We are not removing outliers in this case since the sample size is too small
@@ -124,7 +129,7 @@ elif option == "Eggplant":
       X_N = data_nut[features_nut]
       y_N = data_nut.Fruit
       X_E = data_env[features_env]
-      y_E = data_env.Fruit
+      y_E = data_env.Total_Var
 
       # Pick the regression model we want to use
       model_E_N = ensemble.RandomForestRegressor(random_state=2020)

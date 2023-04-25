@@ -1,4 +1,4 @@
-EC_Limit, pH, Temperature(Farenheit), Humidity, Fruit
+EC_Limit, pH, Temperature(Farenheit), Humidity, Have_Fruit
 8, 6.152902355997359, 77, 49, No Fruits (from harvest)
 13, 5.790174958114503, 69, 47, No Fruits (from harvest)
 10, 4.509760652293134, 55, 57, No Fruits (from harvest)

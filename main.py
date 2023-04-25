@@ -55,8 +55,9 @@ data_nut = pd.read_csv('Eggplant_Nutrient.csv')
 data_env = pd.read_csv('Eggplant_Environment.csv')
 
 # Removing leading/trailing spaces
-data_nut = data_nut.rename(columns={'Fruit ': 'Fruit'})
-data_env = data_env.rename(columns={'Fruit ': 'Fruit'})
+data_nut = data_nut.rename(columns={' Fruit': 'Fruit'})
+data_nut = data_nut.rename(columns={' Phosporus(%)': 'Phosporus(%)'})
+data_nut = data_nut.rename(columns={' Potassium(%)': 'Potassium(%)'})
 
 # Drops missing values
 for data in [data_nut, data_env]:

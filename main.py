@@ -99,6 +99,10 @@ elif option == "Eggplant":
       types = {"No Fruits (from harvest)": 0,"Fruits (from harvest)": 1}
       for data in [data_nut, data_env]:
         data.Fruit = [types[x] for x in data.Fruit]
+      
+      #Normalise numbers to an expected point
+      for column in data_nut.columns:
+        data[column] = (data[column]-8.5)/11.5-8.5
 
       # Removing outliers
       # We are not removing outliers in this case since the sample size is too small

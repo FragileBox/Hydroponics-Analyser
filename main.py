@@ -62,7 +62,7 @@ for data in [data_nut, data_env]:
 # Convert strings to numbers
 types = {"No Fruits (from harvest)": 0,"Fruits (from harvest)": 1}
 for data in [data_nut, data_env]:
-  data.Fruit = [types[x] for x in data.Fruit]
+  data.Have_Fruit = [types[x] for x in data.Have_Fruit]
 
 # Removing outliers
 # We are not removing outliers in this case since the sample size is too small
@@ -85,8 +85,6 @@ X_N = data_nut[features_nut]
 y_N = data_nut.Fruit
 X_E = data_env[features_env]
 y_E = data_env.Fruit
-
-from sklearn import *
 
 # Pick the regression model we want to use
 model_E_N = ensemble.RandomForestRegressor(random_state=2020)

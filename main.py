@@ -55,7 +55,7 @@ model_F.fit(X_F, y_F)
 
 # Main Application
 st.title("Hydroponics Analyser")
-option = st.selectbox("Tomato", "Lettuce")
+option = st.selectbox("Select type of vegetable", ["Tomato","Lettuce"])
 
 if option == "Tomato":
   ec_limit = st.number_input("EC Limit: ", step = 0.1)

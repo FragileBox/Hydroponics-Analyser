@@ -54,9 +54,9 @@ model_T_F.fit(X_F, y_F)
 data_nut = pd.read_csv('Eggplant_Nutrient.csv')
 data_env = pd.read_csv('Eggplant_Environment.csv')
 
-# removing leading/trailing spaces
-data_nut.str.strip()
-data_env.str.strip()
+# Removing leading/trailing spaces
+data_nut = data_nut.rename(columns={'Fruit ': 'Fruit'})
+data_env = data_env.rename(columns={'Fruit ': 'Fruit'})
 
 # Drops missing values
 for data in [data_nut, data_env]:

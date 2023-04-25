@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+# Tomato model
 # Load CSVs
 data_solution = pd.read_csv('Nutrient_solution_consumption.csv')
 data_fruit = pd.read_csv('Fruit_cation.csv')
@@ -48,6 +49,9 @@ Xtrain_F, Xtest_F, ytrain_F, ytest_F = model_selection.train_test_split(X_F, y_F
 # Perform regression on the data
 model_S.fit(X_S, y_S)
 model_F.fit(X_F, y_F)
+
+# Lettuce model
+
 
 st.title("Hydroponics Analyser")
 

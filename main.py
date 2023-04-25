@@ -54,6 +54,10 @@ model_T_F.fit(X_F, y_F)
 data_nut = pd.read_csv('Eggplant_Nutrient.csv')
 data_env = pd.read_csv('Eggplant_Environment.csv')
 
+# removing leading/trailing spaces
+data_nut.str.strip()
+data_env.str.strip()
+
 # Drops missing values
 for data in [data_nut, data_env]:
   data = data.dropna(axis=0)

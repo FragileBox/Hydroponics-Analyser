@@ -17,7 +17,7 @@ data_fruit.Organ_harvested = [types[x] for x in data_fruit.Organ_harvested]
 # Removing outliers
 # We are not removing outliers in this case since the sample size is too small
 if False:
-  for x in ["TotalVolume"]:
+  for x in []: #To add Features
       q3, q1 = np.percentile(avo_TRAIN[x], [75, 25])
       IQR = q3 - q1
   

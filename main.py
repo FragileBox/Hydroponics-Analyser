@@ -137,6 +137,6 @@ elif option == "Eggplant":
       # Make Predictions
       Predictions_N = model_E_N.predict([[pH, Temp, Humidity]])
       Predictions_E = model_E_E.predict([[Nitrogen, Phosporous, Potassium]])
-      st.success(Nitrogen, Phosporous, Potassium)
+      st.success(f"{Nitrogen}, {Phosporous}, {Potassium}")
       st.success(f"{Predictions_N}, {Predictions_E}")
       st.success(f"Probability of success: {'%.2f'%(((Predictions_N+Predictions_E)/2)*100)}%")

@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from sklearn import *
 
 # Tomato model
 # Load CSVs
@@ -36,8 +37,6 @@ y_S = data_solution.NS_residual
 X_F = data_fruit[features_fruit]
 y_F = data_fruit.Organ_harvested
 
-from sklearn import *
-
 # Pick the regression model we want to use
 model_T_S = ensemble.RandomForestRegressor(random_state=2020)
 model_T_F = ensemble.RandomForestRegressor(random_state=2020)
@@ -62,7 +61,7 @@ for data in [data_nut, data_env]:
 # Convert strings to numbers
 types = {"No Fruits (from harvest)": 0,"Fruits (from harvest)": 1}
 for data in [data_nut, data_env]:
-  data.Have_Fruit = [types[x] for x in data.Have_Fruit]
+  data.Fruit = [types[x] for x in data.Fruit]
 
 # Removing outliers
 # We are not removing outliers in this case since the sample size is too small

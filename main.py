@@ -82,7 +82,7 @@ elif option == "Eggplant":
 
   button = st.button("Predict Conditions")
   if button:
-      # Lettuce model
+      # Eggplant model
       # Load CSVs
       data_nut = pd.read_csv('Eggplant_Nutrient.csv')
       #data_env = pd.read_csv('Eggplant_Environment.csv')
@@ -93,7 +93,7 @@ elif option == "Eggplant":
       data_nut = data_nut.rename(columns={' Potassium(%)': 'Potassium(%)'})
 
       # Drops missing values
-      for data in [data_nut, data_env]:
+      for data in [data_nut]:
         data = data.dropna(axis=0)
 
       # Convert strings to numbers

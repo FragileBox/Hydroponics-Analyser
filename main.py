@@ -73,9 +73,9 @@ if option == "Tomato":
 
 elif option == "Eggplant":
   ec_limit = st.number_input("EC Limit: ", step = 0.1)
-  pH = st.number_input("pH: ", step = 0.1)
-  Temp = st.slider("Temperature(Farenheit): ", step = 1, max_value = 100)
-  Humidity = st.slider("Humidity(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
+  #pH = st.number_input("pH: ", step = 0.1)
+  #Temp = st.slider("Temperature(Farenheit): ", step = 1, max_value = 100)
+  #Humidity = st.slider("Humidity(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
   Nitrogen = st.slider("N content(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
   Phosporous = st.slider("P content(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
   Potassium = st.slider("K content(%): ", step = 0.1, min_value = 0.0, max_value = 100.0)
@@ -85,7 +85,7 @@ elif option == "Eggplant":
       # Lettuce model
       # Load CSVs
       data_nut = pd.read_csv('Eggplant_Nutrient.csv')
-      data_env = pd.read_csv('Eggplant_Environment.csv')
+      #data_env = pd.read_csv('Eggplant_Environment.csv')
 
       # Removing leading/trailing spaces
       data_nut = data_nut.rename(columns={' Fruit': 'Fruit'})
@@ -98,7 +98,7 @@ elif option == "Eggplant":
 
       # Convert strings to numbers
       types = {"No Fruits (from harvest)": 0,"Fruits (from harvest)": 1}
-      for data in [data_nut, data_env]:
+      for data in [data_nut]:
         data.Fruit = [types[x] for x in data.Fruit]
       
       # Setting Variance as Y axis
@@ -144,6 +144,6 @@ elif option == "Eggplant":
       model_E_E.fit(X_E, y_E)
       
       # Make Predictions
-      Predictions_N = model_E_E.predict([[pH, Temp, Humidity]])
+      #Predictions_N = model_E_E.predict([[pH, Temp, Humidity]])
       Predictions_E = model_E_N.predict([[Nitrogen, Phosporous, Potassium]])
-      st.success(f"Probability of success: {'%.2f'%(((Predictions_N+Predictions_E)/2)*100)}%")
+      st.success(f"Probability of success: {'%.2f'%((Predictions_E)*100)}%")

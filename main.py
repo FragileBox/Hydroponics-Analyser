@@ -3,12 +3,27 @@ import pandas as pd
 import numpy as np
 from sklearn import *
 
+# Just to add background for app
+def add_bg_from_url(url):
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("{url}");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
 # Main Application
 st.title("Hydroponics Analyser")
 option = st.selectbox("Select type of vegetable", ["Tomato","Eggplant"])
 
 if option == "Tomato":
-  st.image("https://economictimes.indiatimes.com/thumb/msid-95423731,width-1200,height-900,resizemode-4,imgsize-56196/tomatoes-canva.jpg?from=mdr")
+  add_bg_from_url("https://economictimes.indiatimes.com/thumb/msid-95423731,width-1200,height-900,resizemode-4,imgsize-56196/tomatoes-canva.jpg?from=mdr")
   ec_limit = st.number_input("EC Limit: ", step = 0.1)
   new_sol = st.number_input("Nutrient solution to be added(kg): ", step = 0.01)
   add_sol = st.number_input("Nutrient solution already added(kg): ", step = 0.01)
@@ -73,7 +88,7 @@ if option == "Tomato":
       st.success(f"Probability of success: {'%.2f'%((normalized_S+(Predictions_F/2))*100)}%")
 
 elif option == "Eggplant":
-  st.image("https://cdn-prod.medicalnewstoday.com/content/images/articles/279/279359/two-eggplants-on-a-wooden-table.jpg")
+  add_bg_from_url("https://cdn-prod.medicalnewstoday.com/content/images/articles/279/279359/two-eggplants-on-a-wooden-table.jpg")
   ec_limit = st.number_input("EC Limit: ", step = 0.1)
   #pH = st.number_input("pH: ", step = 0.1)
   #Temp = st.slider("Temperature(Farenheit): ", step = 1, max_value = 100)

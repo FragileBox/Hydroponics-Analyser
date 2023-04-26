@@ -9,7 +9,7 @@ def add_bg_from_url(url):
          f"""
          <style>
          .stApp {{
-             background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url({url})
+             background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url({url}), no-repeat;
          }}
          </style>
          """,

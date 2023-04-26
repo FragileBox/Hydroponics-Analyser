@@ -9,10 +9,9 @@ def add_bg_from_url(url):
          f"""
          <style>
          .stApp {{
-             background-image: url("{url}");
+             background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url({url})
              background-attachment: fixed;
              background-size: cover;
-             background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )
          }}
          </style>
          """,

@@ -12,7 +12,7 @@ def add_bg_from_url(url):
              background-image: url("{url}");
              background-attachment: fixed;
              background-size: cover;
-             filter: brightness(40%)
+             background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )
          }}
          </style>
          """,

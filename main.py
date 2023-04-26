@@ -8,7 +8,7 @@ st.title("Hydroponics Analyser")
 option = st.selectbox("Select type of vegetable", ["Tomato","Eggplant"])
 
 if option == "Tomato":
-  st.image("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.healthline.com%2Fnutrition%2Ffoods%2Ftomatoes&psig=AOvVaw0r6M3Ci8Zxp08tkrZ_O_-V&ust=1682577655702000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPCaorD4xv4CFQAAAAAdAAAAABAE")
+  st.image("https://economictimes.indiatimes.com/thumb/msid-95423731,width-1200,height-900,resizemode-4,imgsize-56196/tomatoes-canva.jpg?from=mdr")
   ec_limit = st.number_input("EC Limit: ", step = 0.1)
   new_sol = st.number_input("Nutrient solution to be added(kg): ", step = 0.01)
   add_sol = st.number_input("Nutrient solution already added(kg): ", step = 0.01)
@@ -73,7 +73,7 @@ if option == "Tomato":
       st.success(f"Probability of success: {'%.2f'%((normalized_S+(Predictions_F/2))*100)}%")
 
 elif option == "Eggplant":
-  st.image("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.medicalnewstoday.com%2Farticles%2F279359&psig=AOvVaw0goFYtF9cg-Ov_koLdd3p7&ust=1682577701936000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPDrwsb4xv4CFQAAAAAdAAAAABAE")
+  st.image("https://cdn-prod.medicalnewstoday.com/content/images/articles/279/279359/two-eggplants-on-a-wooden-table.jpg")
   ec_limit = st.number_input("EC Limit: ", step = 0.1)
   #pH = st.number_input("pH: ", step = 0.1)
   #Temp = st.slider("Temperature(Farenheit): ", step = 1, max_value = 100)

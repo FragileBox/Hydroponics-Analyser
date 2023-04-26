@@ -140,10 +140,10 @@ elif option == "Eggplant":
       #Xtrain_E, Xtest_E, ytrain_E, ytest_E = model_selection.train_test_split(X_E, y_E, test_size=0.2, random_state=10)
 
       # Perform regression on the data
-      #model_E_N.fit(X_N, y_N)
-      model_E_E.fit(X_E, y_E)
+      model_E_N.fit(X_N, y_N)
+      #model_E_E.fit(X_E, y_E)
       
       # Make Predictions
-      #Predictions_N = model_E_E.predict([[pH, Temp, Humidity]])
-      Predictions_E = model_E_N.predict([[Nitrogen, Phosporous, Potassium]])
-      st.success(f"Probability of success: {'%.2f'%((Predictions_E)*100)}%")
+      Predictions_N = model_E_E.predict([[pH, Temp, Humidity]])
+      #Predictions_E = model_E_N.predict([[Nitrogen, Phosporous, Potassium]])
+      st.success(f"Probability of success: {'%.2f'%((Predictions_N)*100)}%")

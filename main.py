@@ -128,19 +128,19 @@ elif option == "Eggplant":
 
       X_N = data_nut[features_nut]
       y_N = data_nut.Total_Var
-      X_E = data_env[features_env]
-      y_E = data_env.Fruit
+      #X_E = data_env[features_env]
+      #y_E = data_env.Fruit
 
       # Pick the regression model we want to use
       model_E_N = ensemble.RandomForestRegressor(random_state=2020)
-      model_E_E = ensemble.RandomForestRegressor(random_state=2020)
+      #model_E_E = ensemble.RandomForestRegressor(random_state=2020)
 
       # Split training into some for training and some for testing
       Xtrain_N, Xtest_N, ytrain_N, ytest_N = model_selection.train_test_split(X_N, y_N, test_size=0.2, random_state=10)
-      Xtrain_E, Xtest_E, ytrain_E, ytest_E = model_selection.train_test_split(X_E, y_E, test_size=0.2, random_state=10)
+      #Xtrain_E, Xtest_E, ytrain_E, ytest_E = model_selection.train_test_split(X_E, y_E, test_size=0.2, random_state=10)
 
       # Perform regression on the data
-      model_E_N.fit(X_N, y_N)
+      #model_E_N.fit(X_N, y_N)
       model_E_E.fit(X_E, y_E)
       
       # Make Predictions
